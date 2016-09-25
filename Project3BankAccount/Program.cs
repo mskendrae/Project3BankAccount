@@ -16,94 +16,88 @@ namespace Project3BankAccount
             //Checking account is the same as Spend account
             
             Account mainAccount = new Account();
-           
-          
-
-            // Main Menu
-            Console.WriteLine("Welcome to Gringots Wizards Bank");
-            Console.WriteLine("Please choose an option from the menu.");
-            Console.WriteLine("1. Customer Account Information");
-            Console.WriteLine("2. Customer Balance Information for all accounts");
-            Console.WriteLine("3. Withdrawl Funds");
-            Console.WriteLine("4. Deposit Funds");
-            Console.WriteLine("5. Exit");
-
-
-            int userChoice = int.Parse(Console.ReadLine());
-            //user Choice decions
-
-            switch (userChoice)
+            int userChoice =1;
+            do
             {
-                case 1:
-                    Console.WriteLine(mainAccount.acctName);
-                    Console.WriteLine(mainAccount.acctNumber);
-                    break;
 
-                case 2:
-                    Console.WriteLine("Please Choose which account you'd like a balance on");
-                    Console.WriteLine("1. Spend Account");
-                    Console.WriteLine("2. Reserve Account");
-                    Console.WriteLine("3. Savings Account");
-                    int acctChoice = int.Parse(Console.ReadLine());  
-                       switch(acctChoice)
-                    {
-                        case 1:
-                           
-                            //get balance from spend class
-                            break;
-                        case 2:
-                            //get balance from reserve class
-                            break;
-                        case 3:
-                            //get balance from savings class
-                            break; 
-                    }//end AcctBalance switch
+                // Main Menu
+                Console.WriteLine("Welcome to Gringots Wizards Bank");
+                Console.WriteLine("Please choose an option from the menu.");
+                Console.WriteLine("1. Customer Account Information");
+                Console.WriteLine("2. Customer Balance Information for all accounts");
+                Console.WriteLine("3. Withdrawl Funds");
+                Console.WriteLine("4. Deposit Funds");
+                Console.WriteLine("5. Exit");
 
-                    break;
-                case 3:
 
-                    Console.WriteLine("Please enter the amount you'd like to withdrawal.");
-                       
+                userChoice = int.Parse(Console.ReadLine());
+                //user Choice decions
+
+                switch (userChoice)
+                {
+                    case 1:
+                        Console.WriteLine(mainAccount.acctName);
+                        Console.WriteLine(mainAccount.acctNumber);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Please Choose which account you'd like a balance on");
+                        Console.WriteLine("1. Spend Account");
+                        Console.WriteLine("2. Reserve Account");
+                        Console.WriteLine("3. Savings Account");
+                        int acctChoice = int.Parse(Console.ReadLine());
+                        switch (acctChoice)
+                        {
+                            case 1:
+
+                                //get balance from spend class
+                                break;
+                            case 2:
+                                //get balance from reserve class
+                                break;
+                            case 3:
+                                //get balance from savings class
+                                break;
+                        }//end AcctBalance switch
+
+                        break;
+                    case 3:
+
+                        Console.WriteLine("Please enter the amount you'd like to withdrawal.");
+
                         double userWithdraw = int.Parse(Console.ReadLine());
                         mainAccount.goldWithdraw = userWithdraw;
                         mainAccount.Withdraw();
-                        Console.WriteLine(mainAccount.goldWithdraw);
+                        Console.WriteLine(mainAccount.acctBalance);
 
-                    break;
+                        break;
 
-                case 4:
-                    Console.WriteLine("Please enter the amount you'd like to deposit.");
+                    case 4:
+                        Console.WriteLine("Please enter the amount you'd like to deposit.");
 
                         double userDeposit = int.Parse(Console.ReadLine());
                         mainAccount.addGold = userDeposit;
                         mainAccount.Deposit();
-                    break;
+                        break;
 
-                case 5:
-                    Console.WriteLine("Thank you for choosing Gringots Wizards Bank.");
-                    Console.WriteLine("We appreaciate your business and hope you return soon.");
-                    Console.WriteLine("Please enter 5 again to exit.");
-                    int exitChoice =int.Parse(Console.ReadLine());
+                    case 5:
+                        Console.WriteLine("Thank you for choosing Gringots Wizards Bank.");
+                        Console.WriteLine("We appreaciate your business and hope you return soon.");
+                        Console.WriteLine("Please enter 5 again to exit.");
+                        int exitChoice = int.Parse(Console.ReadLine());
 
-                    if (exitChoice == 5)
-                    {
-                        Environment.Exit(0);
-                    }
+                        if (exitChoice == 5)
+                        {
+                            Environment.Exit(0);
+                        }
+                        
+                        break;
+                }//end main menu switch
 
-
-                    break;
-
-
-
-            }//end main menu switch
-
-            Console.ReadLine();
+            } while (userChoice > 4);
 
 
-
-            
-
-
+                Console.ReadLine();
 
         }//end class
     }//end namespace
