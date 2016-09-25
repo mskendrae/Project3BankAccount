@@ -16,6 +16,8 @@ namespace Project3BankAccount
             //Checking account is the same as Spend account
             
             Account mainAccount = new Account();
+            Spend spendAccount = new Spend();
+
             int userChoice =1;
             do
             {

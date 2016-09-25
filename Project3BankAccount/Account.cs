@@ -16,9 +16,9 @@ namespace Project3BankAccount
         //fields
         public string acctName = "Dumbledore";
         public string acctNumber = "777333";
-        public double acctBalance = 1000000;
-        public double goldWithdraw;
-        public double addGold;
+      //  public double acctBalance = 1000000;
+      //  public double goldWithdraw;
+      //  public double addGold;
         
         //properties
 
