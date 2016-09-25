@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Project3BankAccount
 {
-    class Savings:Account
+    class Savings
     {
+
+       
+
+
     }
 }

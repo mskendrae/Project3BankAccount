@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project3BankAccount
 {
-    class Spend:Account
+    class Spend
 
     {
         //This is muggle worlds Checking account - WE dont have "checks"

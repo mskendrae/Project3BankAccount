@@ -6,42 +6,43 @@ using System.Threading.Tasks;
 
 namespace Project3BankAccount
 {
-    class Account
+     class Account
     {
 
         //This is the account class for Gringots Wizarding Bank and defines the common
         //traits for all accounts for the account holder.
 
 
-         //fields
-        private string acctName;
-        private string acctNumber;
-        private string acctType;
-        private double acctbalance;
-
+        //fields
+        public string acctName = "Dumbledore";
+        public string acctNumber = "777333";
+        public double acctBalance;
+        public double goldWithdraw;
+        public double addGold;
+        
         //properties
 
+        public string AcctName { get; set; }
+        public string AcctNumber { get; set ; }
+        private double AcctBalance { get; set; }
+        private double GoldWithdraw { get; set; }
+        private double AddGold { get; set; }
 
-
-
-        //contructors
-
-        public Account(string acctName, string acctNumber, string acctType)
-        {
-            this.acctName = acctName;
-            this.acctNumber = acctNumber;
-            this.acctType = acctType;
-
-
-        }
 
         //methods
 
-        public double WithdrawalGold(double totalBalance, string acctType)
+        public virtual void Withdraw ()
         {
-            double removeGold = 
+            this.acctBalance -= goldWithdraw;
+            
 
-        }
+        } //end Withdraw method
+
+        public virtual void Deposit()
+        {
+            this.acctBalance += addGold;
+
+        } //end Withdraw method
 
 
 
