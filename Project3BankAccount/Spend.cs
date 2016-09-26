@@ -13,15 +13,17 @@ namespace Project3BankAccount
     //all monies are in wizard world gold 
 
     {  //fields
-
         public double spendBalance = 100000;
-        
+        private string acctType = "spend";
+
 
         //properties
 
         private double SpendBalance { get; set; }
+        private string Type { get; set; }
         
         
+                
         //constructor 
 
         public Spend()

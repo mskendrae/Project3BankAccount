@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,20 @@ namespace Project3BankAccount
             Reserve reserveAccount = new Reserve();
             Savings savingsAccount = new Savings();
 
-            int userChoice =1;
+            StreamWriter spend = new StreamWriter("spend.txt", true);
+            spend.WriteLine("Albus Dumbledore \n 777733345\n Spend Account");
+            spend.Close();
+
+            StreamWriter reserve = new StreamWriter("reserve.txt", true);
+            reserve.WriteLine("Albus Dumbledore \n 777733345\n Reserve Account");
+            reserve.Close();
+
+            StreamWriter savings = new StreamWriter("savings.txt", true);
+            savings.WriteLine("Albus Dumbledore \n 777733345\n Savings Account");
+            savings.Close();
+
+
+            int userChoice =1; 
             do
             {
 

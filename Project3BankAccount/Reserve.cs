@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,12 @@ namespace Project3BankAccount
       //fields
 
         public double reserveBalance = 200000;
-
+        private string acctType = "reserve";
 
         //properties
 
         private double ReserveBalance { get; set; }
-
+        private string Type { get; set; }
 
         //constructor 
 
