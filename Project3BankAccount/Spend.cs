@@ -1,5 +1,6 @@
 ﻿using Project3BankAccount;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Project3BankAccount
 
     {  //fields
 
-        public double spendBalance = 1000000;
+        public double spendBalance = 100000;
         
 
         //properties
@@ -25,7 +26,7 @@ namespace Project3BankAccount
 
         public Spend()
         {
-           //left blank on purpose
+            //this is empty on purpose
         }
 
             
@@ -40,23 +41,25 @@ namespace Project3BankAccount
 
         }
 
-        public override void Withdraw()
+        public override void Withdraw(Account spendAccount)
         {
-            base.Withdraw();
-            spendBalance -= base.userWithdraw;
-            double newBalance = spendBalance;
-            Console.WriteLine("Your new balance Spend is " + "$" + newBalance);
+            base.Withdraw(spendAccount);
+            this.spendBalance = spendBalance - userWithdraw;
+             
+            Console.WriteLine("Your new balance Spend is " + "$" + this.spendBalance);
             Console.WriteLine();
             Console.WriteLine();
+            
+            
 
         } //end Withdraw method
 
-        public override void Deposit()
+        public override void Deposit(Account spendAccount)
         {
-            base.Deposit();
-            spendBalance += base.userDeposit;
-            double newBalance = spendBalance;
-            Console.WriteLine("Your new balance is Spend " + "$" + newBalance);
+            base.Deposit(spendAccount);
+            this.spendBalance = spendBalance + userDeposit;
+          
+            Console.WriteLine("Your new balance is Spend " + "$" + this.spendBalance);
             Console.WriteLine();
             Console.WriteLine();
 

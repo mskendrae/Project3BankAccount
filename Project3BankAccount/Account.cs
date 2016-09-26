@@ -16,7 +16,6 @@ namespace Project3BankAccount
         //fields
         public string acctName = "Dumbledore";
         public string acctNumber = "777333";
-        public double acctBalance = 0;
         public int userWithdraw;
         public int userDeposit;
 
@@ -25,34 +24,40 @@ namespace Project3BankAccount
 
         public string AcctName { get; set; }
         public string AcctNumber { get; set ; }
-        private double AcctBalance { get; set; }
-       
-            
-            
-            //methods
 
-        public virtual void Withdraw ()
+
+
+        //methods
+
+        public void CustomerDisplay()
+        {
+            Console.WriteLine("Here is your account information");
+            Console.WriteLine("Account Holder: " + this.acctName);
+            Console.WriteLine("Account Number: " + this.acctNumber);
+
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+
+
+            //withdraw Method
+        public virtual void Withdraw(Account currentAccount)
         {
             Console.WriteLine("Please enter the amount you'd like to withdraw.");
-            double userWithdraw = int.Parse(Console.ReadLine());
-            Console.WriteLine("You requested " + "$" + userWithdraw);
+            this.userWithdraw = int.Parse(Console.ReadLine());
+            Console.WriteLine("You requested " + "$" + this.userWithdraw);
+
            
-            acctBalance -= userWithdraw;
-
-            
+        }//end Withdraw method
 
 
-        } //end Withdraw method
-
-        public virtual void Deposit()
+        //Deposit Method
+        public virtual void Deposit(Account currentAccount)
         {
             Console.WriteLine("Please enter the amount you'd like to depsit.");
-            double userDeposit = int.Parse(Console.ReadLine());
-            Console.WriteLine("You requested " + "$" + userDeposit);
-
-            acctBalance += userDeposit;
-            
-                  
+            this.userDeposit = int.Parse(Console.ReadLine());
+            Console.WriteLine("You requested " + "$" + this.userDeposit);
+              
        } //end Withdraw method
 
 

@@ -6,47 +6,63 @@ using System.Threading.Tasks;
 
 namespace Project3BankAccount
 {
-    class Savings: Account
+    class Savings:Account
     {
+
+
+        //This is muggle worlds Checking account - WE dont have "checks"
+        //all monies are in wizard world gold 
 
         //fields
 
-        public new double acctBalance = 100000000;
-       
-       
+        public double savingsBalance = 300000;
+
+
         //properties
 
-        private double AcctBalance { get; set; }
-        
-        
+        private double SavingsBalance { get; set; }
+
+
         //constructor 
 
         public Savings()
         {
-            //this consctructor is supposed to be empty
+            //this is empty on purpose
         }
+
+
 
         //methods
 
-        public void SavingsBalance()
+        public void CurrentSavingsBalance()
         {
-            Console.WriteLine("This is your Savings account balance " + "$" + this.acctBalance);
+            Console.WriteLine("Your Savings account balance is " + savingsBalance);
             Console.WriteLine();
             Console.WriteLine();
+
         }
 
-        public override void Withdraw()
+        public override void Withdraw(Account savingsAccount)
         {
-            base.Withdraw();
+            base.Withdraw(savingsAccount);
+            this.savingsBalance = savingsBalance - userWithdraw;
+
+            Console.WriteLine("Your new balance Spend is " + "$" + this.savingsBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
 
 
         } //end Withdraw method
 
-        public override void Deposit()
+        public override void Deposit(Account savingsAccount)
         {
-            base.Deposit();
-        
+            base.Deposit(savingsAccount);
+            this.savingsBalance = savingsBalance + userDeposit;
+
+            Console.WriteLine("Your new balance is Spend " + "$" + this.savingsBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
         } //end Withdraw method
 

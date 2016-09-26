@@ -39,8 +39,7 @@ namespace Project3BankAccount
                 switch (userChoice)
                 {
                     case 1:
-                        Console.WriteLine(mainAccount.acctName);
-                        Console.WriteLine(mainAccount.acctNumber);
+                        mainAccount.CustomerDisplay();
                         break;
 
                     case 2:
@@ -55,10 +54,10 @@ namespace Project3BankAccount
                                 spendAccount.CurrentSpendBalance();
                                 break;
                             case 2:
-                                reserveAccount.ReserveBalance();
+                                reserveAccount.CurrentReserveBalance();
                                 break;
                             case 3:
-                                savingsAccount.SavingsBalance();
+                                savingsAccount.CurrentSavingsBalance();
                                 break;
 
                         }//end AcctBalance switch
@@ -75,15 +74,16 @@ namespace Project3BankAccount
                         switch (withdrawChoice)
                         {   case 1:
 
-                                spendAccount.Withdraw();
+                                spendAccount.Withdraw(spendAccount);
+                               
                                 break;
                             case 2:
                                
-                                reserveAccount.Withdraw();
+                                reserveAccount.Withdraw(reserveAccount);
                                 break;
                             case 3:
 
-                                savingsAccount.Withdraw();
+                                savingsAccount.Withdraw(savingsAccount);
                                 break;
 
                         }//end withdrawmenu
@@ -98,15 +98,15 @@ namespace Project3BankAccount
                         switch (depositChoice)
                         {
                             case 1:
-                                spendAccount.Deposit();
+                                spendAccount.Deposit(spendAccount);
                                 break;
                             case 2:
                                 
-                                reserveAccount.Deposit();
+                                reserveAccount.Deposit(reserveAccount);
                                 break;
                             case 3:
                                 
-                                savingsAccount.Deposit();
+                                savingsAccount.Deposit(savingsAccount);
                                 break;
                             default:
                                 Console.WriteLine("Please enter a valid number");

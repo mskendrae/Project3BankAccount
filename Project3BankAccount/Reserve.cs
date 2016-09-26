@@ -6,46 +6,63 @@ using System.Threading.Tasks;
 
 namespace Project3BankAccount
 {
-    class Reserve: Account
-       {
-        //fields
+    class Reserve:Account
+    {
+        //This is muggle worlds Checking account - WE dont have "checks"
+        //all monies are in wizard world gold 
 
-        public new double acctBalance = 50000;
+      //fields
+
+        public double reserveBalance = 200000;
+
 
         //properties
 
-        private double AcctBalance { get; set; }
-        
-       
+        private double ReserveBalance { get; set; }
+
+
         //constructor 
 
         public Reserve()
         {
-            //this consctructor is supposed to be empty
+            //this is empty on purpose
         }
+
+
 
         //methods
 
-        public void ReserveBalance()
+        public void CurrentReserveBalance()
         {
-            Console.WriteLine("This is your Reserve account balance "+ "$" + this.acctBalance);
+            Console.WriteLine("Your Reserve account balance is " + reserveBalance);
             Console.WriteLine();
             Console.WriteLine();
+
         }
 
-        public override void Withdraw()
+        public override void Withdraw(Account reserveAccount)
         {
-            base.Withdraw();
-   
+            base.Withdraw(reserveAccount);
+            this.reserveBalance = reserveBalance - userWithdraw;
+
+            Console.WriteLine("Your new balance Spend is " + "$" + this.reserveBalance);
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+
         } //end Withdraw method
 
-        public override void Deposit()
+        public override void Deposit(Account reserveAccount)
         {
-            base.Deposit();
-         
+            base.Deposit(reserveAccount);
+            this.reserveBalance = reserveBalance + userDeposit;
+
+            Console.WriteLine("Your new balance is Spend " + "$" + this.reserveBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
         } //end Withdraw method
-
 
 
     }//end Reserve Class
