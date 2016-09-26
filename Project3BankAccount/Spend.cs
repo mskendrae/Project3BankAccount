@@ -14,21 +14,22 @@ namespace Project3BankAccount
 
     {  //fields
         public double spendBalance = 100000;
-        private string acctType = "spend";
+        public string acctType = "spend";
 
 
         //properties
 
         private double SpendBalance { get; set; }
-        private string Type { get; set; }
+        public string Type { get; set; }
         
         
                 
         //constructor 
 
-        public Spend()
+        public Spend():base()
         {
-            //this is empty on purpose
+            this.acctType = "Spend";
+            this.spendBalance = 100000;
         }
 
             
@@ -51,8 +52,10 @@ namespace Project3BankAccount
             Console.WriteLine("Your new balance Spend is " + "$" + this.spendBalance);
             Console.WriteLine();
             Console.WriteLine();
-            
-            
+            StreamWriter withdraw = new StreamWriter("spend.txt", true);
+            withdraw.WriteLine(DateTime.Now + " - $" + userWithdraw + " $" + this.spendBalance);
+            withdraw.Close();
+
 
         } //end Withdraw method
 
@@ -64,6 +67,10 @@ namespace Project3BankAccount
             Console.WriteLine("Your new balance is Spend " + "$" + this.spendBalance);
             Console.WriteLine();
             Console.WriteLine();
+
+            StreamWriter withdraw = new StreamWriter("spend.txt", true);
+            withdraw.WriteLine(DateTime.Now + " + $" + userDeposit + " $"+ this.spendBalance);
+            withdraw.Close();
 
         } //end Withdraw method
 

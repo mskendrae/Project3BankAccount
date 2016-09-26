@@ -26,6 +26,14 @@ namespace Project3BankAccount
         public string AcctName { get; set; }
         public string AcctNumber { get; set ; }
 
+        //constructor
+
+            public Account()
+        {
+            this.acctName = "Dumbledore";
+            this.acctNumber = "777333";
+        }
+
 
 
         //methods
@@ -55,7 +63,7 @@ namespace Project3BankAccount
         //Deposit Method
         public virtual void Deposit(Account currentAccount)
         {
-            Console.WriteLine("Please enter the amount you'd like to depsit.");
+            Console.WriteLine("Please enter the amount you'd like to deposit.");
             this.userDeposit = int.Parse(Console.ReadLine());
             Console.WriteLine("You requested " + "$" + this.userDeposit);
               

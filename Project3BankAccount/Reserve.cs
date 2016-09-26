@@ -20,7 +20,7 @@ namespace Project3BankAccount
         //properties
 
         private double ReserveBalance { get; set; }
-        private string Type { get; set; }
+        public string Type { get; set; }
 
         //constructor 
 
@@ -50,7 +50,9 @@ namespace Project3BankAccount
             Console.WriteLine();
             Console.WriteLine();
 
-
+            StreamWriter withdraw = new StreamWriter("reserve.txt", true);
+            withdraw.WriteLine(DateTime.Now + " - $" + userWithdraw + " $" + this.reserveBalance);
+            withdraw.Close();
 
         } //end Withdraw method
 
@@ -62,8 +64,11 @@ namespace Project3BankAccount
             Console.WriteLine("Your new balance is Spend " + "$" + this.reserveBalance);
             Console.WriteLine();
             Console.WriteLine();
+            StreamWriter withdraw = new StreamWriter("reserve.txt", true);
+            withdraw.WriteLine(DateTime.Now + " + $" + userDeposit + " $" + this.reserveBalance);
+            withdraw.Close();
 
-        } //end Withdraw method
+        } //end deposit method
 
 
     }//end Reserve Class

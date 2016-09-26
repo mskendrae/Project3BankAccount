@@ -21,16 +21,23 @@ namespace Project3BankAccount
             Reserve reserveAccount = new Reserve();
             Savings savingsAccount = new Savings();
 
-            StreamWriter spend = new StreamWriter("spend.txt", true);
-            spend.WriteLine("Albus Dumbledore \n 777733345\n Spend Account");
+            StreamWriter spend = new StreamWriter("spend.txt");
+            spend.WriteLine(spendAccount.acctName);
+            spend.WriteLine(spendAccount.acctNumber);
+            spend.WriteLine(spendAccount.acctType);
             spend.Close();
 
-            StreamWriter reserve = new StreamWriter("reserve.txt", true);
-            reserve.WriteLine("Albus Dumbledore \n 777733345\n Reserve Account");
+            StreamWriter reserve = new StreamWriter("reserve.txt");
+            reserve.WriteLine(spendAccount.acctName);
+            reserve.WriteLine(spendAccount.acctNumber);
+            reserve.WriteLine(spendAccount.acctType);
             reserve.Close();
 
-            StreamWriter savings = new StreamWriter("savings.txt", true);
-            savings.WriteLine("Albus Dumbledore \n 777733345\n Savings Account");
+            StreamWriter savings = new StreamWriter("savings.txt");
+            savings.WriteLine(spendAccount.acctName);
+            savings.WriteLine(spendAccount.acctNumber);
+            savings.WriteLine(spendAccount.acctType);
+
             savings.Close();
 
 
