@@ -17,6 +17,8 @@ namespace Project3BankAccount
             
             Account mainAccount = new Account();
             Spend spendAccount = new Spend();
+            Reserve reserveAccount = new Reserve();
+            Savings savingsAccount = new Savings();
 
             int userChoice =1;
             do
@@ -30,7 +32,6 @@ namespace Project3BankAccount
                 Console.WriteLine("3. Withdrawl Funds");
                 Console.WriteLine("4. Deposit Funds");
                 Console.WriteLine("5. Exit");
-
 
                 userChoice = int.Parse(Console.ReadLine());
                 //user Choice decions
@@ -51,55 +52,86 @@ namespace Project3BankAccount
                         switch (acctChoice)
                         {
                             case 1:
-
-                                //get balance from spend class
+                                spendAccount.CurrentSpendBalance();
                                 break;
                             case 2:
-                                //get balance from reserve class
+                                reserveAccount.ReserveBalance();
                                 break;
                             case 3:
-                                //get balance from savings class
+                                savingsAccount.SavingsBalance();
                                 break;
+
                         }//end AcctBalance switch
 
                         break;
                     case 3:
+                        //Withdraw  menu and processing
 
-                        Console.WriteLine("Please enter the amount you'd like to withdrawal.");
+                        Console.WriteLine("Please choose the account you would like to withdraw from:");
+                        Console.WriteLine("1. Spend Account");
+                        Console.WriteLine("2. Reserve Account");
+                        Console.WriteLine("3. Savings Account");
+                        int withdrawChoice= int.Parse(Console.ReadLine());
+                        switch (withdrawChoice)
+                        {   case 1:
 
-                        double userWithdraw = int.Parse(Console.ReadLine());
-                        mainAccount.goldWithdraw = userWithdraw;
-                        mainAccount.Withdraw();
-                        Console.WriteLine(mainAccount.acctBalance);
+                                spendAccount.Withdraw();
+                                break;
+                            case 2:
+                               
+                                reserveAccount.Withdraw();
+                                break;
+                            case 3:
 
+                                savingsAccount.Withdraw();
+                                break;
+
+                        }//end withdrawmenu
                         break;
 
                     case 4:
-                        Console.WriteLine("Please enter the amount you'd like to deposit.");
+                        Console.WriteLine("Please choose the account you would like to depsit to:");
+                        Console.WriteLine("1. Spend Account");
+                        Console.WriteLine("2. Reserve Account");
+                        Console.WriteLine("3. Savings Account");
+                        int depositChoice = int.Parse(Console.ReadLine());
+                        switch (depositChoice)
+                        {
+                            case 1:
+                                spendAccount.Deposit();
+                                break;
+                            case 2:
+                                
+                                reserveAccount.Deposit();
+                                break;
+                            case 3:
+                                
+                                savingsAccount.Deposit();
+                                break;
+                            default:
+                                Console.WriteLine("Please enter a valid number");
+                                break;
 
-                        double userDeposit = int.Parse(Console.ReadLine());
-                        mainAccount.addGold = userDeposit;
-                        mainAccount.Deposit();
+                        }//end depmenu
+
                         break;
 
                     case 5:
                         Console.WriteLine("Thank you for choosing Gringots Wizards Bank.");
                         Console.WriteLine("We appreaciate your business and hope you return soon.");
-                        Console.WriteLine("Please enter 5 again to exit.");
-                        int exitChoice = int.Parse(Console.ReadLine());
-
-                        if (exitChoice == 5)
-                        {
-                            Environment.Exit(0);
-                        }
                         
+                        Console.ReadLine();                     
+                        Environment.Exit(0);
+                      
                         break;
+                   default:
+                        Console.WriteLine("Please enter a valid number");
+                        break;
+
                 }//end main menu switch
 
-            } while (userChoice > 4);
+            } while (true);
 
-
-                Console.ReadLine();
 
         }//end class
     }//end namespace

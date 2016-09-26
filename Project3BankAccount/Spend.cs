@@ -13,39 +13,52 @@ namespace Project3BankAccount
 
     {  //fields
 
-        public double acctBalance = 1000000;
-        public double goldWithdraw;
-        public double addGold;
+        public double spendBalance = 1000000;
+        
 
         //properties
 
-        private double AcctBalance { get; set; }
-        private double GoldWithdraw { get; set; }
-        private double AddGold { get; set; }
+        private double SpendBalance { get; set; }
+        
+        
         //constructor 
 
+        public Spend()
+        {
+           //left blank on purpose
+        }
 
+            
        
         //methods
 
-        public void SpendBalance()
+        public void CurrentSpendBalance()
         {
-            Console.WriteLine(this.acctBalance);
+            Console.WriteLine("Your Spend account balance is " + spendBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
         }
 
         public override void Withdraw()
         {
             base.Withdraw();
-            this.acctBalance -= goldWithdraw;
-
+            spendBalance -= base.userWithdraw;
+            double newBalance = spendBalance;
+            Console.WriteLine("Your new balance Spend is " + "$" + newBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
         } //end Withdraw method
 
         public override void Deposit()
         {
             base.Deposit();
-            this.acctBalance += addGold;
+            spendBalance += base.userDeposit;
+            double newBalance = spendBalance;
+            Console.WriteLine("Your new balance is Spend " + "$" + newBalance);
+            Console.WriteLine();
+            Console.WriteLine();
 
         } //end Withdraw method
 

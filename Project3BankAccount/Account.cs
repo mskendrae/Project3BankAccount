@@ -16,33 +16,44 @@ namespace Project3BankAccount
         //fields
         public string acctName = "Dumbledore";
         public string acctNumber = "777333";
-      //  public double acctBalance = 1000000;
-      //  public double goldWithdraw;
-      //  public double addGold;
-        
+        public double acctBalance = 0;
+        public int userWithdraw;
+        public int userDeposit;
+
+
         //properties
 
         public string AcctName { get; set; }
         public string AcctNumber { get; set ; }
         private double AcctBalance { get; set; }
-        private double GoldWithdraw { get; set; }
-        private double AddGold { get; set; }
-
-
-        //methods
+       
+            
+            
+            //methods
 
         public virtual void Withdraw ()
         {
-            this.acctBalance -= goldWithdraw;
+            Console.WriteLine("Please enter the amount you'd like to withdraw.");
+            double userWithdraw = int.Parse(Console.ReadLine());
+            Console.WriteLine("You requested " + "$" + userWithdraw);
+           
+            acctBalance -= userWithdraw;
+
             
+
 
         } //end Withdraw method
 
         public virtual void Deposit()
         {
-            this.acctBalance += addGold;
+            Console.WriteLine("Please enter the amount you'd like to depsit.");
+            double userDeposit = int.Parse(Console.ReadLine());
+            Console.WriteLine("You requested " + "$" + userDeposit);
 
-        } //end Withdraw method
+            acctBalance += userDeposit;
+            
+                  
+       } //end Withdraw method
 
 
 
